@@ -1,0 +1,5 @@
+pencil
+pen
+rubber
+notebook
+book
