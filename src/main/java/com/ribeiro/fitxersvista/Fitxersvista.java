@@ -34,10 +34,10 @@ public class Fitxersvista {
             Product product = productes.get(0);
             String path = System.getProperty("user.dir") + "/json.json";
             fController.generarJson(product, path);
-            List<Product> pList = fController.getProductsByPath(path);
-            for(Product p : pList)
-                System.out.println(p.getName() + " - " +  p.getPrice());
-            
+            Product p = fController.llegirJson(path, Product.class);
+
+            System.out.println(p.getName() + " - " + p.getPrice());
+
         } catch (FitxerException fe) {
             System.out.println(fe.getMessage());
         }
@@ -105,7 +105,7 @@ public class Fitxersvista {
                     fileString += " h ";
                 }
 
-                fileString += " " + f.getPropietari() + " " + f.getUltimaModificacio();
+                fileString += " " + f.getPropietari() + " " + f.getUltimaModificacio() + " " + f.getMida();
 
                 res += fileString + "\n";
 
